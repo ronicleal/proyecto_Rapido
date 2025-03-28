@@ -16,8 +16,10 @@ public class App {
 
             switch (opcion) {
                 case 1:
-                    manejarSeleccionDeCarpeta(sc);
+                    ControlarSeleccionarCarpeta(sc);
                     break;
+                case 2:
+                    ControlarLecturaDeFichero(sc);
             
                 default:
                     break;
@@ -51,7 +53,7 @@ public class App {
 
     }
 
-    private static void manejarSeleccionDeCarpeta (Scanner sc){
+    private static void ControlarSeleccionarCarpeta (Scanner sc){
         String carpetaSelecionada = SeleccionarCarpeta.seleccionar(sc);
         if(!carpetaSelecionada.isEmpty()){
             System.out.println("Carpeta seleccionada :" + carpetaSelecionada);
@@ -60,6 +62,19 @@ public class App {
         }
 
     }
+
+    private static void ControlarLecturaDeFichero (Scanner sc){
+        System.out.println("Intruduce la ruta de la carpeta: ");
+        String carpetaSeleccionada = sc.nextLine();
+        String archivoSeleccionado = LecturaDeFichero.leer(carpetaSeleccionada, sc);
+        if(archivoSeleccionado != null){
+            System.out.println("Datos leidos con éxito. ");
+        }else{
+            System.out.println("No se pudo leer el Fichero. ");
+        }
+    }
+
+    
 
 
 
