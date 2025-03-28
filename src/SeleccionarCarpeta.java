@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class SeleccionarCarpeta {
     
     public String seleccionar(Scanner sc) {
-        System.out.print("Ingrese la ruta de la carpeta: ");
+        System.out.print("Introduce la ruta de la carpeta: ");
         String carpetaSeleccionada = sc.nextLine();
         File carpeta = new File(carpetaSeleccionada);
 

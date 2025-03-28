@@ -25,7 +25,7 @@ public class App {
                     manejarConversion(sc);
                     break;
                 case 0:
-                    System.out.println("Saliendo de la aplicación...");
+                    System.out.println("Saliendo del programa...");
                     break;
                 default:
                     System.out.println("Opción no válida. Intente de nuevo.");
@@ -54,7 +54,7 @@ public class App {
     }
 
     private static void manejarLecturaDeFichero(Scanner sc) {
-        System.out.print("Ingrese la ruta de la carpeta: ");
+        System.out.print("Introduce la ruta de la carpeta: ");
         String carpetaSeleccionada = sc.nextLine();
         String archivoSeleccionado = lecturaDeFichero.leer(carpetaSeleccionada, sc);
         if (archivoSeleccionado != null && !archivoSeleccionado.isEmpty()) {
@@ -65,7 +65,7 @@ public class App {
     }
 
     private static void manejarConversion(Scanner sc) {
-        System.out.print("Ingrese la ruta de la carpeta para la conversión: ");
+        System.out.print("Introduce la ruta de la carpeta para la conversión: ");
         String carpetaSeleccionada = sc.nextLine();
         String datos = "datos de ejemplo"; 
         conversionA.convertir(sc, datos, carpetaSeleccionada);
