@@ -35,4 +35,24 @@ public class ConversionA {
         }
     }
 
+    private void escribirJSON(File archivo, String datos) throws IOException {
+        
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
+            String[] lineas = datos.split("\n");
+            bw.write("[");
+            bw.newLine();
+            for (int i = 0; i < lineas.length; i++) {
+                bw.write("  {");
+                bw.newLine();
+                bw.write("    \"linea\": \"" + lineas[i] + "\"");
+                bw.newLine();
+                bw.write("  }");
+                if (i < lineas.length - 1) bw.write(",");
+                bw.newLine();
+            }
+            bw.write("]");
+        }
+    }
+
+
 }
