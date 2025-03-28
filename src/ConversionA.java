@@ -53,6 +53,31 @@ public class ConversionA {
             bw.write("]");
         }
     }
+    
+    private void escribirXML(File archivo, String datos) throws IOException {
 
-
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
+            String[] lineas = datos.split("\n");
+            bw.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+            bw.newLine();
+            bw.write("<datos>");
+            bw.newLine();
+            
+            for (String linea : lineas) {
+                bw.write("  <elemento>");
+                bw.newLine();
+                bw.write("    <linea>" + linea + "</linea>");
+                bw.newLine();
+                bw.write("  </elemento>");
+                bw.newLine();
+            }
+            bw.write("</datos>");
+        }
+    }
 }
+
+
+    
+
+
+
