@@ -6,8 +6,11 @@ import java.util.Scanner;
 
 public class ConversionA {
 
-    public void convertir(Scanner sc, String carpetaSeleccionada) {
-        
+    public void convertir(Scanner sc, String carpetaSeleccionada, String datos) {
+        if (datos.isEmpty()) {
+            System.out.println("Esta vacio");
+            return;
+        }
 
         System.out.println("Selecciona el formato de salida:");
         System.out.println("1. CSV");
@@ -15,15 +18,36 @@ public class ConversionA {
         System.out.println("3. XML");
         System.out.print("Pon el número del formato de salida: ");
         int formato = sc.nextInt();
-       
+        sc.nextLine();
 
         System.out.print("Escribe el nombre del archivo de salida (sin extensión): ");
         String nombreSalida = sc.nextLine();
 
-        
+        try {
+            switch (formato) {
 
-     
-}
+                case 1:
+                    nombreSalida += ".csv";
+                    escribirCSV(new File(carpetaSeleccionada, nombreSalida), datos);
+                    break;
+                case 2:
+                    nombreSalida += ".json";
+                    escribirJSON(new File(carpetaSeleccionada, nombreSalida), datos);
+                    break;
+                case 3:
+                    nombreSalida += ".xml";
+                    escribirXML(new File(carpetaSeleccionada, nombreSalida), datos);
+                    break;
+                default:
+                    System.out.println("Formato no válido");
+                    return;
+            }
+            System.out.println("La conversion ha sido realizada con exito. Archivo de salida: " + nombreSalida);
+        } catch (IOException e) {
+            System.out.println("Error al escribir el archivo: " + e.getMessage());
+        }
+    }
+
 
  private void escribirCSV(File archivo, String datos) throws IOException {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
