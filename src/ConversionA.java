@@ -1,3 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ConversionA {
@@ -16,6 +20,19 @@ public class ConversionA {
         System.out.print("Escribe el nombre del archivo de salida (sin extensión): ");
         String nombreSalida = sc.nextLine();
 
+        
+
      
 }
+
+ private void escribirCSV(File archivo, String datos) throws IOException {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
+            String[] lineas = datos.split("\n");
+            for (String linea : lineas) {
+                bw.write(linea);
+                bw.newLine();
+            }
+        }
+    }
+
 }
