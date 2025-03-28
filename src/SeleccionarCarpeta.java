@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class SeleccionarCarpeta {
     public String seleccionar(Scanner sc) {
-        System.out.println("Ingrese la ruta de la carpeta: ");
+        System.out.println("Escribe la ruta de la carpeta: ");
         String carpetaSelecionada = sc.nextLine();
         File carpeta = new File(carpetaSelecionada);
         if (carpeta.exists() && carpeta.isDirectory()) {
