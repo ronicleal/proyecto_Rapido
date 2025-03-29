@@ -1,5 +1,8 @@
 import java.util.Scanner;
-
+/**
+ * @author Diego Guerrero
+ * @author Ronic Leal
+ */
 public class App {
     private static final SeleccionarCarpeta seleccionarCarpeta = new SeleccionarCarpeta();
     private static final LecturaDeFichero lecturaDeFichero = new LecturaDeFichero();
